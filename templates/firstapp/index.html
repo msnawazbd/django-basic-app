@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>First App</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>Hello this is index.html</h1>
+    <img src="{% static 'images/dhansiri-logo.png' %}" alt="dhansiri">
+
+    {% if access_records %}
+    <table>
+        <tr>
+            <th>Site Name</th>
+            <th>Date Accessed</th>
+        </tr>
+
+        {% for acc in access_records %}
+        <tr>
+            <td>{{ acc.name }}</td>
+            <td>{{ acc.date }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+    {% else %}
+    <p>No Access Record Found</p>
+    {% endif %}
+</body>
+</html>
